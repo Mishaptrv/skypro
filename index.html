@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AR Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background: #f7f7f7;
+      }
+      a {
+        padding: 1em 2em;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <a id="ar-link" href="#">Открыть в AR</a>
+
+    <script>
+      const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const usdzLink = '122untitled.usdz';
+      const glbLink = '122untitled.glb';
+
+      const link = isiOS
+        ? usdzLink
+        : `https://arvr.google.com/scene-viewer/1.0?file=${encodeURIComponent(glbLink)}&mode=ar_preferred`;
+
+      document.getElementById('ar-link').href = link;
+    </script>
+  </body>
+</html>
