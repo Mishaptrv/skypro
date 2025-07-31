@@ -2,41 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="/src/style.css" rel="stylesheet">
+  <title>3D Модель в AR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Подключаем библиотеку model-viewer -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f4f4f4;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    model-viewer {
+      width: 100%;
+      max-width: 600px;
+      height: 500px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
-<div class="bg-white w-full h-[650px]">
+
   <model-viewer
-          src="/public/dino.glb"
-          ios-src="/public/dino.usdz"
-          alt="tok-konus"
-          ar
-          autoplay
-          ar-modes="webxr scene-viewer quick-look"
-          style="width: 100%; height: 100%;"
-          camera-controls
-          shadow-intensity="0.5"
-          loading="lazy">
-
-    <div class="progress-bar hide" slot="progress-bar">
-      <div class="update-bar"></div>
-    </div>
-
-    <img slot="ar-button" src="https://yannaev.github.io/wildar/ARKit.png" alt="Смотреть в дополненной реальности"
+    src="https://mishaptrv.github.io/skypro/dino.glb"
+    ios-src="https://mishaptrv.github.io/skypro/dino.usdz"
+    alt="3D модель динозавра"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    autoplay
+    shadow-intensity="1"
+    exposure="1"
+    loading="lazy"
+  >
+    <img slot="ar-button"
+         src="https://mishaptrv.github.io/skypro/ar-icon.svg"
+         alt="Смотреть в AR"
          style="width: 60px;
                 height: 60px;
                 position: absolute;
                 bottom: 10px;
                 right: 10px;
-                cursor: pointer;"
-         loading="lazy">
-
+                cursor: pointer;">
   </model-viewer>
-</div>
+
 </body>
 </html>
